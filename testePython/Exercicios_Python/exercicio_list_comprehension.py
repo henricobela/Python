@@ -42,3 +42,46 @@ vendedores_dicionario = {
 
 bonus = [(vendedores_dicionario[item] * 0.1) if vendedores_dicionario[item] > meta else 0 for item in vendedores_dicionario]
 print(bonus)
+
+
+print("-"*20)
+
+
+estoque = [
+    ("BSA1557", 395),
+    ("BSA1234", 123),
+    ("BSA4257", 555),
+    ("BSA1523", 64566),
+    ("BSA6542", 39235),
+]
+
+lista_pedido = [1000 if qtde < 200 else 500 for produto, qtde in estoque]
+print(lista_pedido)
+
+
+print("-"*20)
+
+
+produtos2 = [
+    "coca",
+    "guarana",
+    "pepsi",
+    "guaraviton",
+    "fanta"
+]
+
+vendas = [
+    1200,
+    1000,
+    800,
+    400,
+    2340,
+]
+
+top3 = ["fanta", "coca", "guarana"]
+
+total_top3 = sum(vendas[i] for i, produto2 in enumerate(produtos2) if produto2 in top3)
+
+print(total_top3)
+print(f"Top 3 representou {total_top3/sum(vendas):.2%} das vendas")
+
