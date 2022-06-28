@@ -30,3 +30,15 @@ produtos = ["vinho", "macarrao", "feijao", "carne"]
 
 lista_vendas2019_2 = [produto for i, produto in enumerate(produtos) if vendas_produtos_2[i] > meta]
 print(lista_vendas2019_2)
+
+print("-"*20)
+
+meta = 2000
+vendedores_dicionario = {
+    "Ana": 1900,
+    "Marcos": 2000,
+    "Stenio": 8000,
+}
+
+bonus = [(vendedores_dicionario[item] * 0.1) if vendedores_dicionario[item] > meta else 0 for item in vendedores_dicionario]
+print(bonus)
