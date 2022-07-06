@@ -7,10 +7,16 @@ class CreateAccount:
         self.name = name
         self.cpf = cpf
 
+    def deposit(self, value):
+        self.balance += value
+
+    def withdraw(self, value):
+        self.balance -= value
+
+    def transf(self):
+        pass
+
     def consult_balance(self):
         return self.balance
-
-
-
 
 
