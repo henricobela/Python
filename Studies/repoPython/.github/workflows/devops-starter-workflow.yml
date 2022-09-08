@@ -1,0 +1,148 @@
+name: Build and Deploy to Azure Functions
+on:
+  push:
+    branches:
+      - master
+
+env:
+  APPNAME: repoPython
+  APPLICATIONPATH: "Application"
+  RESOURCEGROUPNAME: repoPython-rg
+  LOCATION: East US
+  HOSTINGPLAN: repoPython
+  STORAGEACCOUNTNAME: repopythonstrg
+  APPINSIGHTSLOCATION: East US
+  PYTHON_VERSION: '3.7.5'
+  SUBSCRIPTIONID: 8e2bc99b-0939-45d2-bbf7-8366183783e6
+  SKU: Dynamic Y1
+
+jobs:
+  build:
+    name: Build Application
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+
+    # Setup Python
+    - name: Use Python ${{ env.PYTHON_VERSION }}
+      uses: actions/setup-python@v2
+      with:
+        python-version: ${{ env.PYTHON_VERSION }}
+
+    # Install packages listed in requirements.txt
+    - name: Install Dependancies
+      continue-on-error: false
+      run: |
+        pushd './${{ env.APPLICATIONPATH }}'
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt --target=".python_packages/lib/site-packages"
+        popd
+
+    # Run Unit Tests
+    - name: Pytest
+      continue-on-error: false
+      run: |
+        mkdir testresults
+        pip install pytest && pip install -r ./${{ env.APPLICATIONPATH }}/requirements.txt && pytest Tests/test_unit.py --junitxml=./testresults/test-results.xml && pip install pycmd && py.cleanup Tests/
+
+    # Uploading unit test results to artifact store
+    - name: Upload unit test results to Artifact
+      continue-on-error: false
+      uses: actions/upload-artifact@v2
+      with:
+        name: UnitTestResults
+        path: ./testresults/test-results.xml
+
+    - name: Make directories for artifact upload
+      continue-on-error: false
+      run: |
+        mkdir buildartifacts
+        mkdir deploymenttemplates
+
+    # Archive build artifact
+    - name: Archive Application
+      run: |
+        zip -qq -r ./buildartifacts/Application.zip ./${{ env.APPLICATIONPATH }}
+
+    # Uploading application to artifact store
+    - name: Upload Application to Build Artifact
+      continue-on-error: false
+      uses: actions/upload-artifact@v2
+      with:
+        name: buildartifacts
+        path: buildartifacts
+
+    # Archive Arm template
+    - name: Archive ArmTemplates
+      run: |
+        zip -qq -r ./deploymenttemplates/ArmTemplates.zip ./ArmTemplates
+
+    # Uploading Arm Template to artifact store
+    - name: Upload Arm templates to Artifact
+      continue-on-error: false
+      uses: actions/upload-artifact@v2
+      with:
+        name: deploymenttemplates
+        path: deploymenttemplates
+
+  deploy:
+    name: Deploy application to Azure Function App
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+    - name: Login to Azure
+      uses: azure/login@v1
+      continue-on-error: false
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+    - name: 'Install Azure Function App CLI'
+      run: |
+        sudo apt-get update
+        sudo apt-get install azure-functions-core-tools-3
+
+    - name: Download Build Artifact
+      uses: actions/download-artifact@v2
+      continue-on-error: false
+      with:
+        name: buildartifacts
+        path: buildartifacts
+
+    - name: Unzipping Build Artifact
+      run: |
+        unzip -qq ./buildartifacts/Application.zip -d .
+
+    - name: Download Arm Template
+      uses: actions/download-artifact@v2
+      continue-on-error: false
+      with:
+        name: deploymenttemplates
+        path: deploymenttemplates
+
+    - name: Unzipping ARM template
+      run: |
+        unzip -qq ./deploymenttemplates/ArmTemplates.zip -d .
+
+    - name: Deploy ARM Template
+      uses: azure/arm-deploy@v1
+      id: deploy
+      with:
+        scope: resourcegroup
+        subscriptionId: ${{ env.SUBSCRIPTIONID }}
+        resourceGroupName: ${{ env.RESOURCEGROUPNAME }}
+        template: ./ArmTemplates/python-functionapp-template-consumption.json
+        parameters: functionAppName="${{ env.APPNAME }}" hostingPlanName="${{ env.HOSTINGPLAN }}" appInsightLocation="${{ env.APPINSIGHTSLOCATION }}" storageAccountName="${{ env.   STORAGEACCOUNTNAME }}" sku="${{ env.SKU }}" subscriptionId="${{ env.SUBSCRIPTIONID }}"
+    
+    # Deploy the Function app to Azure Functions 
+    - name: 'Deploy to Azure Function'
+      uses: Azure/functions-action@v1
+      with:
+        app-name: ${{ env.APPNAME }}
+        package: ${{ env.APPLICATIONPATH }}
+
+    - name: Finalizing
+      run: |
+        echo -e "\033[1;32mPlease use Azure portal or Azure Functions Core Tools to fetch url with keys to invoke the Azure function(s)\033[m"
+        echo "func azure functionapp list-functions ${{ env.APPNAME }} --show-keys"
+        echo "It may take upto 10 minutes for the function list to update"
+        func azure functionapp list-functions ${{ env.APPNAME }}
