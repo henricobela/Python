@@ -6,27 +6,28 @@
 import random
 
 
-# EXERCÍCIOS:
-# 1. Contar palavras
-#         Testes:
-#         Olá, bom dia (3)
-#         Olá,bom.dia(3)
-#         Olá,                bom.dia (3)
-# 2. Dados 9 digitos do numero do CPF, verificar se ele é ou não válido
-# 3. Dados 9 digitos do numero do CPF, apresentar os 2 dígitos correspondentes
-# 4. Gerar um CPF aleatório
-#     from random import randint
-#     numero = str(randint(100000000, 999999999))
-# 5. Utilizando parâmetros dinâmicos, faça uma função que calcule a média dos argumentos
-# 6. Utilizando parâmetros dinâmicos, retornar o maior valor
+#funcao para receber os parametros do usuario (ainda com bug para contar quantas palavras na frase)
+#sem usar o metodo split :) to tentando professor rsrrs
+def contar_palavras1(*args):
+    word = ""
+    count = 0
+    puncts = "!#$%&'()*+, -./:;<=>?@[\]^_`{|}~"
+    for letra in range(0, len(args), 1):
+        if letra != " ":
+            word += args[letra]
+            for w in word:
+                if w not in puncts:
+                    count += 1
+    return word, count
 
 
-def contar_palavras(*args):
+def contar_palavras2(*args):
     word = ""
     count = 0
     for palavra in range(0, len(args), 1):
-        word += " " + args[palavra]
+        word += args[palavra] + " "
         count += 1
+
     return word, count
 
 
@@ -78,7 +79,9 @@ while True:
     menu()
     opcao = int(input())
     if opcao == 1:
-        print(contar_palavras("ola", "tudo", "bem"))
+        print(contar_palavras2("ola!!!", "     tudo", "!!!bem")) #esse funciona!!!
+        print("Certo, vamos contar as palavras, agora digite as palavras que deseja contar: ")
+        print(contar_palavras1(input()))
     
     elif opcao == 2:
         print("Certo, vamos verificar o CPF, digite os 9 digitos: ")
