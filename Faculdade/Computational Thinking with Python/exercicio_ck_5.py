@@ -6,29 +6,23 @@
 import random
 
 
-#funcao para receber os parametros do usuario (ainda com bug para contar quantas palavras na frase)
-#sem usar o metodo split :) to tentando professor rsrrs
-def contar_palavras1(*args):
-    word = ""
-    count = 0
-    puncts = "!#$%&'()*+, -./:;<=>?@[\]^_`{|}~"
-    for letra in range(0, len(args), 1):
-        if letra != " ":
-            word += args[letra]
-            for w in word:
-                if w not in puncts:
-                    count += 1
-    return word, count
+def cortar_string(*args):
+    for sentence in args:
+        word_list = []
+        word = ""
+        for ch in sentence:
+            if ch == " " and word != "":
+                word_list.append(word)
+                word = ""
+            else:
+                word += ch
+        if word != "" and word != " ":
+            word_list.append(word)
+    return [i for i in word_list if i != " "]
 
 
-def contar_palavras2(*args):
-    word = ""
-    count = 0
-    for palavra in range(0, len(args), 1):
-        word += args[palavra] + " "
-        count += 1
-
-    return word, count
+def contar_palavras(lista_string):
+    return len(lista_string)
 
 
 def mediaDinamica(*args): 
@@ -79,9 +73,11 @@ while True:
     menu()
     opcao = int(input())
     if opcao == 1:
-        print(contar_palavras2("ola!!!", "     tudo", "!!!bem")) #esse funciona!!!
+        print(cortar_string("ola!!!", "     tudo", "!!!bem"))
         print("Certo, vamos contar as palavras, agora digite as palavras que deseja contar: ")
-        print(contar_palavras1(input()))
+        frase = cortar_string(input())
+        cont = contar_palavras(frase)
+        print(frase, cont)
     
     elif opcao == 2:
         print("Certo, vamos verificar o CPF, digite os 9 digitos: ")
