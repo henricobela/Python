@@ -50,11 +50,13 @@ def excluir_cadastro():
 
 
 def perguntar_pesquisa():
-    return int(input("Em uma escala de 0 a 10, qual a chance de você recomendar a BASF para um amigo?"))
+    return int(input("Em uma escala de 0 a 10, qual a chance de você recomendar a BASF para um amigo?\nDigite de 0 a 10: "))
 
 
 
 ############################################## - PRINCIPAL - ########################################
+
+
 
 nome = ""
 
@@ -77,37 +79,34 @@ while True:
             else:
                 print("Email valido, siga em frente")
                 break
+
     elif opcao == 2:
         try: 
             ver_cadastro(nome, cpf, email)
         except:
             print("Cadastro inexistente! Por favor, preencher seu cadastro!!!")
+
     elif opcao == 3:
         nome, cpf, email = excluir_cadastro()
         print("Cadastro excluido com sucesso!")
+
     elif opcao == 4:
         clear()
         print("Indo para pesquisa...")
         num = perguntar_pesquisa()
         comment = "Sem comentários"
         while True:
-            if num >= 0:
+            if num >= 0 and num <= 4:
                 print(f"{nome} Sentimos muito pelo seu transtorno, como podemos melhorar nossos serviços?")
                 comment = input("Comente aqui: ")
-                print(f"Comentário deixado: {comment}")
-                print("SAINDO!!!")
                 break
-            elif num <= 5:
+            elif num >= 5 and num <= 7:
                 print(f"{nome} Entendemos seu ponto, para podermos melhorar nossos serviços comente sobre sua experiencia?")
                 comment = input("Comente aqui: ")
-                print(f"Comentário deixado: {comment}")
-                print("SAINDO!!!")
                 break
-            elif num >= 6 and num <= 10:
+            elif num > 7 and num <= 10:
                 print(f"{nome} Agradecemos sua participação! Caso queira comentar sua experiencia, abaixo temos um campo de comentario")
                 comment = input("Comente aqui: ")
-                print(f"Comentário deixado: {comment}")
-                print("SAINDO!!!")
                 break
             elif num < 0 or num > 10:
                 clear()
@@ -115,7 +114,11 @@ while True:
                 num = perguntar_pesquisa()
             else:
                 break
+
     elif opcao == 5:
-        print(f"Comentário deixado: {comment}")
+        if nome == "":
+            print(f"Comentário deixado por zé ninguem: {comment}")
+        else:
+            print(f"Comentário deixado por {nome}: {comment}")
         print("SAINDO!!!")
         break
