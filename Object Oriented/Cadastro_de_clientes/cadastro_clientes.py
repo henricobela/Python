@@ -6,7 +6,12 @@ from streamlit_option_menu import option_menu as om
 from Pages.Cliente.Create import create_cliente
 from Pages.Dashboard.Dashboard import read_clientes
 
-menu = om("Menu", options = ["Criar", "Dashboard"], orientation = "horizontal")
+st.set_page_config(layout="wide")
+
+menu = om("Menu", options = ["Criar", "Atualizar", "Deletar", "Dashboard"], orientation = "horizontal")
+
+selecao = st.sidebar.selectbox("Teste", ["Regiao", "Empresa", "Produto"])
+
 
 if menu == "Criar":
     create_cliente()
