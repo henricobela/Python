@@ -1,26 +1,18 @@
 import streamlit as st
 import Controllers.ClienteController as ClienteController
 import models.Cliente as cliente
+import pandas as pd
+from streamlit_option_menu import option_menu as om
+from Pages.Cliente.Create import create_cliente
+from Pages.Dashboard.Dashboard import read_clientes
 
+menu = om("Menu", options = ["Criar", "Dashboard"], orientation = "horizontal")
 
-st.title("Formulario doido")
+if menu == "Criar":
+    create_cliente()
 
-with st.form(key = "inserir"):
-    id = st.number_input(label = "Digite seu id", format = "%d", step = 1)
-    nome = st.text_input(label = "Digite seu nome")
-    empresa = st.text_input(label = "Digite sua empresa")
-    email = st.text_input(label = "Digite seu email")
-    comentario = st.text_area(label = "Comentario")
-    submit = st.form_submit_button("Enviar")
-
-if submit:
-    cliente.id = id
-    cliente.nome = nome
-    cliente.empresa = empresa
-    cliente.email = email
-    cliente.comentario = comentario
-
-    ClienteController.Incluir(cliente)
+elif menu == "Dashboard":
+    read_clientes()
 
 
 #create
