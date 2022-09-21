@@ -1,8 +1,27 @@
-import sqlite3
+import streamlit as st
+import Controllers.ClienteController as ClienteController
+import models.Cliente as cliente
 
-banco = sqlite3.connect("C:\\Users\\henri\\Github\\Python\\Object Oriented\\Cadastro_de_clientes\\database.db")
 
-cursor = banco.cursor()
+st.title("Formulario doido")
+
+with st.form(key = "inserir"):
+    id = st.number_input(label = "Digite seu id", format = "%d", step = 1)
+    nome = st.text_input(label = "Digite seu nome")
+    empresa = st.text_input(label = "Digite sua empresa")
+    email = st.text_input(label = "Digite seu email")
+    comentario = st.text_area(label = "Comentario")
+    submit = st.form_submit_button("Enviar")
+
+if submit:
+    cliente.id = id
+    cliente.nome = nome
+    cliente.empresa = empresa
+    cliente.email = email
+    cliente.comentario = comentario
+
+    ClienteController.Incluir(cliente)
+
 
 #create
 # id = str(6)
