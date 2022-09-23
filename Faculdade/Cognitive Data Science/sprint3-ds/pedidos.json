@@ -1,0 +1,172 @@
+[
+    {
+        "_id" : 1,
+        "nome" : "Fazenda Rockfort",
+        "id_cliente" : 1,
+        "data_pedido": {"$date": "2022-07-01T12:34:00.000Z"},
+        "preco" : 500.0,
+        "itens" : [ 
+            {
+                "desc" : "Lucantin Red",
+                "qtd" : 5,
+                "preco" : 100.0
+            }
+        ],
+        "status" : "Confirmado"
+    },
+    {
+        "_id" : 2,
+        "nome" : "Haras Augustus",
+	"id_cliente" : 2,
+        "data_pedido": {"$date": "2022-07-02T16:54:40.000Z"},
+        "preco" : 300.0,
+        "itens" : [ 
+            {
+                "desc" : "Lucantin Red",
+                "qtd" : 1,
+                "preco" : 100.0
+            }, 
+            {
+                "desc" : "Lutavit A 1000",
+                "qtd" : 1,
+                "preco" : 200.0
+            }
+        ],
+        "status" : "Confirmado"
+    },
+    {
+        "_id" : 3,
+        "nome" : "Haras Pegasus",
+	"id_cliente" : 3,
+        "data_pedido": {"$date": "2022-07-02T16:54:40.000Z"},
+        "preco" : 550.0,
+        "itens" : [ 
+            {
+                "desc" : "Lutavit E50",
+                "qtd" : 2,
+                "preco" : 250.0
+            }, 
+            {
+                "desc" : "Lutavit A 1000",
+                "qtd" : 1,
+                "preco" : 50.0
+            }
+        ],
+        "status" : "Confirmado"
+    },
+    {
+        "_id" : 4,
+        "nome" : "Clínica Santa Luzia",
+	"id_cliente" : 4,
+        "data_pedido": {"$date": "2022-07-02T16:54:40.000Z"},
+        "preco" : 400.0,
+        "itens" : [ 
+            {
+                "desc" : "Lutavit Calpan 98pct",
+                "qtd" : 2,
+                "preco" : 200.0
+            }
+        ],
+        "status" : "Pendente"
+    },
+    {
+        "_id" : 5,
+        "nome" : "Clínica Animalis",
+	"id_cliente" : 5,
+        "data_pedido": {"$date": "2022-07-03T16:54:40.000Z"},
+        "preco" : 600.0,
+        "itens" : [ 
+            {
+                "desc" : "Lutavit Calpan 98pct",
+                "qtd" : 3,
+                "preco" : 200.0
+            }
+        ],
+        "status" : "Confirmado"
+    },
+    {
+        "_id" : 6,
+        "nome" : "Haras Boi Gordo",
+	"id_cliente" : 6,
+        "data_pedido": {"$date": "2022-07-03T16:54:40.000Z"},
+        "preco" : 500.0,
+        "itens" : [ 
+            {
+                "desc" : "Lutavit Calpan 98pct",
+                "qtd" : 2,
+                "preco" : 200.0
+            },
+	    {
+                "desc" : "Lutavit A 1000",
+                "qtd" : 1,
+                "preco" : 50.0
+            }
+        ],
+        "status" : "Confirmado"
+    },
+    {
+        "_id" : 7,
+        "nome" : "Haras Nelore",
+	"id_cliente" : 7,
+        "data_pedido": {"$date": "2022-07-04T10:00:40.000Z"},
+        "preco" : 1050.0,
+        "itens" : [ 
+            {
+                "desc" : "Lutavit A 1000",
+                "qtd" : 21,
+                "preco" : 50.0
+            }
+        ],
+        "status" : "Confirmado"
+    },
+    {
+        "_id" : 8,
+        "nome" : "Angus Haras",
+	"id_cliente" : 8,
+        "data_pedido": {"$date": "2022-07-05T11:10:40.000Z"},
+        "preco" : 4000.0,
+        "itens" : [ 
+            {
+                "desc" : "Lutavit Calpan 98pct",
+                "qtd" : 20,
+                "preco" : 200.0
+            }
+        ],
+        "status" : "Confirmado"
+    },
+    {
+        "_id" : 9,
+        "nome" : "Angus Haras",
+	"id_cliente" : 8,
+        "data_pedido": {"$date": "2022-08-15T13:10:40.000Z"},
+        "preco" : 2000.0,
+        "itens" : [ 
+            {
+                "desc" : "Lutavit Calpan 98pct",
+                "qtd" : 10,
+                "preco" : 200.0
+            }
+        ],
+        "status" : "Confirmado"
+    },
+    {
+        "_id" : 10,
+        "nome" : "Haras Nelore",
+	"id_cliente" : 7,
+        "data_pedido": {"$date": "2022-07-18T17:10:40.000Z"},
+        "preco" : 1250.0,
+        "itens" : [ 
+            {
+                "desc" : "Lutavit Calpan 98pct",
+                "qtd" : 5,
+                "preco" : 200.0
+            },
+	    {
+                "desc" : "Lutavit A 1000",
+                "qtd" : 5,
+                "preco" : 50.0
+            }
+        ],
+        "status" : "Confirmado"
+    }
+]
