@@ -1,7 +1,7 @@
 # ###### THIS GAME IS ABOUT TO GUESSING A CUP WITH A BALL INSIDE
 
-# import random
-# import os
+# import random       
+# import os           
 
 # def clear_screen():
 #     return os.system("cls")
