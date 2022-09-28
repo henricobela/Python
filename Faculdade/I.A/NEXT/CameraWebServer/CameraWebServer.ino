@@ -33,8 +33,8 @@
 // ===========================
 // Enter your WiFi credentials
 // ===========================
-const char* ssid = "Wireless_Room";
-const char* password = "Fmjs8544@";
+const char* ssid = "iPhoneHenrico";
+const char* password = "abc123456.";
 
 void startCameraServer();
 
