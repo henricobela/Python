@@ -1,10 +1,10 @@
 from functions import *
 
-
+clear()
 while True:
-    opt = int(input("O que voce deseja fazer?\n\n[1] Cadastrar Usuario\n[2] Criar Captchas\n[0] Para Sair\n"))
+    opt = input("\tO que voce deseja fazer?\n\n\t[1] Cadastrar Usuario\n\t[2] Criar Captchas\n\t[0] Para Sair\n\t")
 
-    if opt == 1:
+    if opt == "1":
         lista = []
 
         while True:
@@ -64,19 +64,20 @@ while True:
                 break
 
             elif escolha != "1" and escolha != "2" and escolha != "3" and escolha != "4" and escolha != "5" and escolha != "6": 
-                print("Por favor escolha um valor valido entre os disponiveis")
-                  
-    elif opt == 2:
+                print("Por favor escolha um valor valido entre os disponiveis\n")
+                input()
+
+    elif opt == '2':
         clear()
         menu_captcha()
         #digitar dps captchas
     
-    elif opt != 1 and opt != 2 and opt != 0:
+    elif opt != '1' and opt != '2' and opt != '0':
         clear()
-        print("Digite uma opçao válida!!!")
+        print("\tDigite uma opçao válida!!!\n")
     
-    elif opt == 0:
+    elif opt == '0':
         clear()
-        print("Obrigado por utilizar os servicos!!!")
+        print("\tObrigado por utilizar os servicos!!!\n")
         break 
     
