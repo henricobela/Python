@@ -63,8 +63,9 @@ while True:
                 print("Muito obrigado por utilizar o nosso programa!!!")
                 break
 
-            else: 
-                print("Por favor escolha um valor valido entre os disponiveis")  
+            elif escolha != "1" and escolha != "2" and escolha != "3" and escolha != "4" and escolha != "5" and escolha != "6": 
+                print("Por favor escolha um valor valido entre os disponiveis")
+                  
     elif opt == 2:
         clear()
         menu_captcha()
