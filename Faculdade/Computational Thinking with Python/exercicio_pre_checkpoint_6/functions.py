@@ -105,3 +105,19 @@ def criar():
     email = input("Qual o E-mail de seu cliente?..... ")
     pais = input("Qual o País de seu cliente?..... ")
     return nome, sobrenome, telefone, email, pais
+
+
+
+
+
+
+def menu_captcha():
+    print("""
+    
+    MENU CAPTCHA - DIGITE UM DOS NUMEROS ABAIXO
+    1 - CAPTCHA 1 
+    2 - CAPTCHA 2
+    3 - CAPTCHA 3 
+    4 - CAPTCHA 4
+    
+    """)
