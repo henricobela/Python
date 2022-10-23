@@ -1,3 +1,5 @@
+import random
+
 
 def adicionar(nome, sobrenome, telefone, email, pais, lista):
     x = {
@@ -74,16 +76,16 @@ def menu():
 
     print("""
 
-     ------ CADASTRO DE CLIENTES ------
-    |                                  |
-    |      1 - Criar cliente           |
-    |      2 - Listar clientes         |
-    |      3 - Editar cliente          |
-    |      4 - Excluir cliente         |
-    |      5 - Pesquisar cliente       |
-    |      6 - Sair                    |
-    |                                  |
-     ----------------------------------
+     ---------- CADASTRO DE CLIENTES ----------
+    |                                          |
+    |      1 - Adicionar um novo contato       |
+    |      2 - Lista de contatos               |
+    |      3 - Editar um contato               |
+    |      4 - Apagar um contato               |
+    |      5 - Pesquisar um contato            |
+    |      6 - Voltar                          |
+    |                                          |
+     ------------------------------------------
 
     """)
 
@@ -113,11 +115,76 @@ def criar():
 
 def menu_captcha():
     print("""
+
+                    CAPTCHAS
     
-    MENU CAPTCHA - DIGITE UM DOS NUMEROS ABAIXO
-    1 - CAPTCHA 1 
-    2 - CAPTCHA 2
-    3 - CAPTCHA 3 
-    4 - CAPTCHA 4
+    1 - Com 10 caracteres
+    2 - Definindo a quantidade de caracteres
+    3 - Definindo os caracteres
+    4 - Gravando/Exibindo em uma lista
+    5 - Gravando/Exibindo em um arquivo
+    0 - Voltar
+
+    """)
+
+def menu_captcha_dinamico():
+    print("""
+Tipos de caracteres:    
+    (l)etras minusculas
+    (L)etras maiusculas
+    (d)igitos
+    (e)speciais
     
     """)
+
+def captcha(size = 10):
+    text = "abcdefghijklmnopqrstuvwxyz"
+    nums = "0123456789"
+    punct = '!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~'
+
+    chars = text + nums + punct
+    return ''.join(random.choice(chars) for _ in range(size))
+
+
+def captcha_dinamico(size, escolha):
+    text = "abcdefghijklmnopqrstuvwxyz"
+    nums = "0123456789"
+    punct = '!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~'
+
+    lista = []
+
+    for i in escolha:
+        if i == "l":
+            lista.append(text)
+        elif i == "L":
+            lista.append(text.upper())
+        elif i == "d":
+            lista.append(nums)
+        elif i == "e":
+            lista.append(punct)
+
+    chars = ""
+    for x in lista: 
+        chars += x
+
+    return ''.join(random.choice(chars) for _ in range(size))
+
+
+def escrever_arquivo(lista):
+    count = 0
+    with open("lista_captchas.txt", "w") as file:
+        for captcha in lista:
+            count += 1
+            file.write(f"Captcha {count}: " + captcha + "\n")
+
+
+def ler_arquivo():
+    with open("lista_captchas.txt", "r") as file:
+        x = file.readlines()
+    return "\n".join(x)
+
+
+def v5(lista):
+    escrever_arquivo(lista)
+    y = ler_arquivo()
+    return y
