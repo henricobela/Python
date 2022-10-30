@@ -1,7 +1,13 @@
 import streamlit as st
 import pandas as pd
+from functions.functions import *
 
-st.set_page_config(layout="wide")
+df = pd.read_excel("data.xlsx", index_col = 0)
+df.Data = df.Data.astype(str)
+
+
+st.set_page_config(layout = "wide")
+
 
 recebimentos, despesa_fixa, despesa_variavel, despesa_gerencia, imposto, imobiliaria = st.tabs(
     ["Recebimentos", 
@@ -13,24 +19,19 @@ recebimentos, despesa_fixa, despesa_variavel, despesa_gerencia, imposto, imobili
 
 
 with recebimentos:
-    df = {"Data": "10/10/1996",
-          "Descrição": "Bla bla bla"}
-    df = pd.DataFrame(df, index = [0])
-    st.dataframe(df)
-
-    
+    filtro_menu("Recebimentos", df)    
 
 with despesa_fixa:
-    st.warning("DESPESAS FIXASSSSS UHUUUUULLLLL")
+    filtro_menu("Despesas fixas", df)   
 
 with despesa_variavel:
-    st.warning("DESPESAS VARIAVEIIIISSS UHUUUUULLLLL")
+    filtro_menu("Despesas variáveis", df)   
 
 with despesa_gerencia:
-    st.info("DESPESAS GERENCIAAAA UHUUUUULLLLL")
+    filtro_menu("Pessoas", df)   
 
 with imposto:
-    st.success("IMPOSTOSSSSSS UHUUUUULLLLL")
+    filtro_menu("Impostos", df)   
 
 with imobiliaria:
-    st.success("IMOBILIARIAAAAAAAAAAAAAAAAA UHUUUUULLLLL")
+    filtro_menu("Recebimentos", df)   
