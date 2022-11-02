@@ -3,9 +3,9 @@ from pessoa.pessoa import Pessoa
 
 ALGUEM = Pessoa(nome = "Henrico Bela", idade = 26, sexo = "Masculino")
 
-print(nome := ALGUEM.nome)
-print(idade := ALGUEM.idade)
-print(sexo := ALGUEM.sexo)
+print(nome := ALGUEM.nome)                      # deste modo, a criaçao e atribuiçao de variaveis fica mais dinamica
+print(idade := ALGUEM.idade)                    # e pode ser utilizada mais adiante do codigo.
+print(sexo := ALGUEM.sexo)                      # Ex. (variavel := valor) ----- (nome := 'Henrico')
 
 print(f"Nome: {nome}\nIdade: {idade}\nSexo: {sexo}")
 
