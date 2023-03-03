@@ -1,0 +1,10 @@
+[Unit]
+Description=Example Service
+[Service]
+Type=simple
+ExecStart= /usr/bin/python3 /usr/bin/example.py
+Restart=on-failure
+RestartSec=10
+KillMode=process
+[Install]
+WantedBy=multi-user.target

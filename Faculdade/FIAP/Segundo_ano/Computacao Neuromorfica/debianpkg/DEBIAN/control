@@ -1,0 +1,9 @@
+Package: example
+Version: 1.0
+Section: custom
+Priority: optional
+Architecture: all
+Essential: no
+Installed-Size: 1024
+Maintainer: Francis Zavaleta
+Description: example debian module for my FIAP students
