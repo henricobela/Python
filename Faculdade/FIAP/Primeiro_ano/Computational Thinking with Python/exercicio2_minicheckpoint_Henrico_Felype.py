@@ -8,18 +8,21 @@ RM: 95985, 96232
 
 def menu():
     print(
-        "CADASTRO DISCIPLINAS\n" +
-        "--------------------\n" +
-        "0 - SAIR\n" +
-        "1 - Cadastrar as disciplinas\n" +
-        "2 - Listar o registro Completo\n"
+        "CADASTRO DISCIPLINAS\n"
+        + "--------------------\n"
+        + "0 - SAIR\n"
+        + "1 - Cadastrar as disciplinas\n"
+        + "2 - Listar o registro Completo\n"
     )
 
 
 def menu_opcao_1():
-    print("CADASTRAR COM AS NOTAS\n" +
-          "-----------------------------\n" +
-          "CADASTRAR DISCIPLINAS DESEJADAS. DIGITAR '.' PARA FINALIZAR\n")
+    print(
+        "CADASTRAR COM AS NOTAS\n"
+        + "-----------------------------\n"
+        + "CADASTRAR DISCIPLINAS DESEJADAS. DIGITAR '.' PARA FINALIZAR\n"
+    )
+
 
 def menu_opcao_2():
     print("LISTANDO O REGISTRO\n")
@@ -28,7 +31,7 @@ def menu_opcao_2():
 
 
 def clear():
-    print("\n"*125)
+    print("\n" * 125)
 
 
 def verificar_status(nota):
@@ -36,12 +39,9 @@ def verificar_status(nota):
 
 
 def preencher_estrutura(disciplina, media, status):
-    estrutura = [
-        {"Disciplina": disciplina,
-        "Média Anual": media,
-        "status": status}
-    ]
+    estrutura = [{"Disciplina": disciplina, "Média Anual": media, "status": status}]
     return estrutura
+
 
 #
 # def verificar_maior_len(lista):
@@ -57,10 +57,7 @@ def preencher_estrutura(disciplina, media, status):
 #     return x
 
 
-
-
 ############################################ - PRINCIPAL - ############################################
-
 
 
 lista = []
@@ -86,9 +83,11 @@ while True:
         menu_opcao_2()
         for i in lista:
             for j in i:
-                print(f"\t{j['Disciplina']}" +
-                      f"| {j['Média Anual']}" +
-                      f"| {j['status']}")
+                print(
+                    f"\t{j['Disciplina']}"
+                    + f"| {j['Média Anual']}"
+                    + f"| {j['status']}"
+                )
         print()
     elif opcao == 0:
         print("SAINDO!!!")

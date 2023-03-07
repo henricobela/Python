@@ -1,8 +1,8 @@
 [Unit]
-Description=Example Service
+Description=Euclidean Service
 [Service]
 Type=simple
-ExecStart= /usr/bin/python3 /usr/bin/example.py
+ExecStart= /usr/bin/python3 /usr/bin/euclidean.py
 Restart=on-failure
 RestartSec=10
 KillMode=process

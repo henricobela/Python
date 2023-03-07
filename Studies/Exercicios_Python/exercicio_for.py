@@ -6,7 +6,7 @@ vendas = [
     ["Marcus", 9900],
     ["Maria", 3750],
     ["Ana", 10300],
-    ["Alon", 7870]
+    ["Alon", 7870],
 ]
 
 contador = 0
@@ -30,6 +30,3 @@ for venda in vendas:
         melhor_vendedor = venda[0]
 
 print(f"{melhor_vendedor} foi o melhor vendedor com {maior_vendas} vendas")
-
-
-

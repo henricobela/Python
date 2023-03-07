@@ -1,5 +1,3 @@
-
-
 def separador(texto):
     """
     Esta funcao retorna uma separação de texto personalizada
@@ -16,7 +14,7 @@ def remover_menor_nota(c1, c2, c3):
     checkpoints = [c1, c2, c3]
     min_grade = None
     for i in checkpoints:
-        if (min_grade is None or i < min_grade):
+        if min_grade is None or i < min_grade:
             min_grade = i
     checkpoints.remove(min_grade)
     return checkpoints
@@ -39,7 +37,7 @@ def calcular_media_trabalhos(lista):
 #     num = 0
 #     for i in lista:
 #         num += i / 2
-#     return num 
+#     return num
 #     return (s1 + s2) / 2
 
 
@@ -50,7 +48,7 @@ def calcular_media_trabalhos(lista):
 
 def media_semestral_1(media_check, media_sprint, prova_semestral):
     """
-    Esta funcao retorna a media total semestral do 1o semestre, onde recebe como parametros, 
+    Esta funcao retorna a media total semestral do 1o semestre, onde recebe como parametros,
     a media dos checkpoints, a media dos sprints e a prova semestral
     """
     media_trabalhos = (media_check + media_sprint) / 2
@@ -60,7 +58,7 @@ def media_semestral_1(media_check, media_sprint, prova_semestral):
 
 def media_semestral_2(media_check, media_sprint, prova_semestral):
     """
-    Esta funcao retorna a media total semestral do 2o semestre, onde recebe como parametros, 
+    Esta funcao retorna a media total semestral do 2o semestre, onde recebe como parametros,
     a media dos checkpoints, a media dos sprints e a prova semestral
     """
     media_trabalhos = (media_check + media_sprint) / 2
@@ -85,10 +83,9 @@ def verificar_nota_valida(nota):
         return print("Digite uma nota valida")
 
 
-
 def receber_notas_1o_sem():
     """
-    Esta funcao recebe todos os dados, e os guarda em variaveis do tipo lista, 
+    Esta funcao recebe todos os dados, e os guarda em variaveis do tipo lista,
     e tambem solicita a verificacao de outra funcao para validar os dados fornecidos
     """
     lista_ck = []
@@ -116,13 +113,13 @@ def receber_notas_1o_sem():
 
         listao.append(lista_ck)
         listao.append(lista_sp)
-    
+
     return listao
 
 
 def receber_notas_2o_sem():
     """
-    Esta funcao recebe todos os dados, e os guarda em variaveis do tipo lista, 
+    Esta funcao recebe todos os dados, e os guarda em variaveis do tipo lista,
     e tambem solicita a verificacao de outra funcao para validar os dados fornecidos
     """
     lista_ck = []
@@ -150,7 +147,7 @@ def receber_notas_2o_sem():
 
         listao.append(lista_ck)
         listao.append(lista_sp)
-    
+
     return listao
 
 
@@ -171,7 +168,6 @@ def verificar_se_passou(media_ano):
             print(f"Reprovado em EXAME! Nota: {media_final}")
 
 
-
 #####################################################################################################
 separador("1o Semestre")
 
@@ -187,22 +183,26 @@ print(f"Global Solution 1o Semestre: {lista_gs_1o_Sem}")
 print(f"Checkpoints 1o Semestre: {lista_ck_1o_Sem}")
 print(f"Sprints 1o Semestre: {lista_sp_1o_Sem}")
 
-#checkpoint 1o semestre
-nota_ck_1o_Sem = remover_menor_nota(lista_ck_1o_Sem[0], lista_ck_1o_Sem[1], lista_ck_1o_Sem[2])
+# checkpoint 1o semestre
+nota_ck_1o_Sem = remover_menor_nota(
+    lista_ck_1o_Sem[0], lista_ck_1o_Sem[1], lista_ck_1o_Sem[2]
+)
 media_ck_1o_sem = calcular_media_trabalhos(nota_ck_1o_Sem)
 print(f"Media Checkpoints 1o semestre = {media_ck_1o_sem:.1f}")
 
-#sprints 1o semestre
+# sprints 1o semestre
 media_sp_1o_Sem = calcular_media_trabalhos(lista_sp_1o_Sem)
 print(f"Media Sprints 1o semestre = {media_sp_1o_Sem:.1f}")
 
-#Global Solution 1o semestre
+# Global Solution 1o semestre
 nota_gs_1o_sem = lista_gs_1o_Sem
 
-#media 1o semestre
-media_total_1o_Sem = media_semestral_1(media_check = media_ck_1o_sem, 
-                                       media_sprint = media_sp_1o_Sem, 
-                                       prova_semestral = nota_gs_1o_sem)
+# media 1o semestre
+media_total_1o_Sem = media_semestral_1(
+    media_check=media_ck_1o_sem,
+    media_sprint=media_sp_1o_Sem,
+    prova_semestral=nota_gs_1o_sem,
+)
 
 print(f"Media do primeiro semestre = {media_total_1o_Sem:.1f}")
 ############################################################
@@ -220,35 +220,39 @@ print(f"Global Solution 2o Semestre: {lista_gs_2o_Sem}")
 print(f"Checkpoints 2o Semestre: {lista_ck_2o_Sem}")
 print(f"Sprints 2o Semestre: {lista_sp_2o_Sem}")
 
-#checkpoint 2o semestre
-nota_ck_2o_Sem = remover_menor_nota(lista_ck_2o_Sem[0], lista_ck_2o_Sem[1], lista_ck_2o_Sem[2])
+# checkpoint 2o semestre
+nota_ck_2o_Sem = remover_menor_nota(
+    lista_ck_2o_Sem[0], lista_ck_2o_Sem[1], lista_ck_2o_Sem[2]
+)
 media_ck_2o_sem = calcular_media_trabalhos(nota_ck_2o_Sem)
 print(f"Media Checkpoints 2o semestre = {media_ck_2o_sem:.1f}")
 
-#sprints 2o semestre
+# sprints 2o semestre
 media_sp_2o_Sem = calcular_media_trabalhos(lista_sp_2o_Sem)
 print(f"Media Sprints 2o semestre = {media_sp_2o_Sem:.1f}")
 
-#Global Solution 2o semestre
+# Global Solution 2o semestre
 nota_gs_2o_sem = lista_gs_2o_Sem
 
-#media 2o semestre
-media_total_2o_Sem = media_semestral_2(media_check = media_ck_2o_sem, 
-                                       media_sprint = media_sp_2o_Sem, 
-                                       prova_semestral = nota_gs_2o_sem)
+# media 2o semestre
+media_total_2o_Sem = media_semestral_2(
+    media_check=media_ck_2o_sem,
+    media_sprint=media_sp_2o_Sem,
+    prova_semestral=nota_gs_2o_sem,
+)
 
 print(f"Media do segundo semestre = {media_total_2o_Sem:.1f}")
 
 
-#media anual
+# media anual
 media_ano = media_anual(media_total_1o_Sem, media_total_2o_Sem)
 
 print(f"Media Anual: {media_ano:.1f}")
 
-#final
+# final
 separador("STATUS")
 
 verificar_se_passou(media_ano)
 
 
-#FIM
+# FIM

@@ -1,7 +1,8 @@
 ###### THIS GAME IS ABOUT TO GUESSING A CUP WITH A BALL INSIDE
 
-import random       
-import os           
+import random
+import os
+
 
 def clear_screen():
     return os.system("cls")
@@ -31,7 +32,6 @@ def game_guess(my_list, guess):
             print("WRONG!!!")
             print("Try again")
             guess = player_guess()
-
 
 
 cup_list = [" ", "O", " "]

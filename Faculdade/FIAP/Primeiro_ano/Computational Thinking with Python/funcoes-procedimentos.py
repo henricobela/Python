@@ -1,25 +1,24 @@
-#procedimento nao retorna valores
-#funções retornam valores - return - que pode ser reutilizado
+# procedimento nao retorna valores
+# funções retornam valores - return - que pode ser reutilizado
 
 
-
-#procedimento sem parametro
+# procedimento sem parametro
 def saudacao_sem_parametro():
     print("Seja bem-vindo á FIAP")
 
 
-#procedimento com parametro
+# procedimento com parametro
 def saudacao_com_parametro(x):
     print(f"{x}, Seja bem-vindo á FIAP")
 
 
-#procedimento com + de 1 parametro
+# procedimento com + de 1 parametro
 def flor(tipo, cor):
     print(f"A cor da {tipo} é: {cor}")
 
 
-#procedimento com parametro padrão
-def flor(tipo = "Rosa", cor = "Vermelha"):
+# procedimento com parametro padrão
+def flor(tipo="Rosa", cor="Vermelha"):
     print(f"A cor da {tipo} é: {cor}")
 
 
@@ -36,7 +35,7 @@ def saudacao4(hora, nome):
         print(f"Boa noite, {nome}, seja bem vindo á FIAP")
 
 
-def saudacao5(hora = 20, nome = "Edson"):
+def saudacao5(hora=20, nome="Edson"):
     if hora >= 3 and hora <= 12:
         print(f"Bom dia, {nome}, seja bem vindo á FIAP")
     elif hora >= 12 and hora <= 18:
@@ -45,12 +44,12 @@ def saudacao5(hora = 20, nome = "Edson"):
         print(f"Boa noite, {nome}, seja bem vindo á FIAP")
 
 
-#função sem parametro
+# função sem parametro
 def pi():
     return 3.14159
 
 
-#função com parametro
+# função com parametro
 def media_2n(n1, n2):
     return (n1 + n2) / 2
 
@@ -83,7 +82,7 @@ def prox_mult5_v2(num):
     num += 1
     while num % 5 != 0:
         num += 1
-    
+
     return print(f"Retorno: {num}")
 
 
@@ -97,6 +96,7 @@ def fatorial(num):
         result *= n
     return print(f"Retorno: {result}")
 
+
 def potencia(n1, n2):
     # potencia = 1
     # for i in range(n2):
@@ -105,28 +105,29 @@ def potencia(n1, n2):
     return print(f"Retorno: {n1 ** n2}")
     # return print(f"Retorno: {potencia}")
 
-#Programa principal
+
+# Programa principal
 print("PROCEDIMENTOS:-----------------------------")
 saudacao_sem_parametro()
 saudacao_com_parametro("Joao")
 flor("Orquidea", "Azul")
 flor()
 
-print("-"*50)
+print("-" * 50)
 
 saudacao3("Boa noite", "Henrico")
 saudacao4(16, "Henrico")
 saudacao5(11, "Maria")
 saudacao5()
 
-print("-"*50)
+print("-" * 50)
 print("FUNCOES:-----------------------------")
 
 raio = 4
-area_circunferencia = pi() * raio ** 2
+area_circunferencia = pi() * raio**2
 print(f"Area do circulo: {area_circunferencia}")
 print(f"Media = {media_2n(6, 4)}")
-print("-"*50)
+print("-" * 50)
 
 prox_num(5)
 maior_2n(15, 98)

@@ -1,5 +1,4 @@
 class DataAnalysis:
-
     def __init__(self):
         pass
 
@@ -10,6 +9,7 @@ class DataAnalysis:
 
     def fill_na_null(self):
         import statistics
+
         for coluna in self.columns:
             na_count = self[coluna].isna().value_counts()
             moda = statistics.mode(self[coluna])
@@ -17,17 +17,17 @@ class DataAnalysis:
                 if moda == "NaN":
                     if na_count == True:
                         pass
-                else: 
-                    self[coluna] = self[coluna].fillna(value = moda)   
+                else:
+                    self[coluna] = self[coluna].fillna(value=moda)
             if self[coluna].dtype == "int64":
                 if moda == "NaN":
                     if na_count == True:
                         pass
-                else: 
-                    self[coluna] = self[coluna].fillna(value = moda)        
+                else:
+                    self[coluna] = self[coluna].fillna(value=moda)
             if self[coluna].dtype == "O":
                 if moda == "NaN":
                     if na_count == True:
                         pass
-                else: 
-                    self[coluna] = self[coluna].fillna(value = moda)
+                else:
+                    self[coluna] = self[coluna].fillna(value=moda)

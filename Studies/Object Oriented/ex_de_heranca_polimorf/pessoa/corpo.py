@@ -1,9 +1,7 @@
-
-
-class Corpo():
+class Corpo:
     """
     Classe Corpo que tem como caracteristicas:
-    
+
     Metodos:
         cabeca()
         braco_esquerdo()
@@ -15,7 +13,7 @@ class Corpo():
 
     def __init__(self) -> None:
         pass
-    
+
     def cabeca():
         """
         Metodo da classe Corpo, retorna cabeça
@@ -39,7 +37,7 @@ class Corpo():
         Metodo da classe Corpo, retorna dorso
         """
         return "Dorso"
-    
+
     def perna_esquerda():
         """
         Metodo da classe Corpo, retorna perna esquerda
@@ -51,8 +49,3 @@ class Corpo():
         Metodo da classe Corpo, retorna perna direita
         """
         return "Perna direita"
-
-
-
-
-

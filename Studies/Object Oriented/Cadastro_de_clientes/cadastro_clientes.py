@@ -8,7 +8,11 @@ from Pages.Dashboard.Dashboard import read_clientes
 
 st.set_page_config(layout="wide")
 
-menu = om("Menu", options = ["Criar", "Atualizar", "Deletar", "Dashboard"], orientation = "horizontal")
+menu = om(
+    "Menu",
+    options=["Criar", "Atualizar", "Deletar", "Dashboard"],
+    orientation="horizontal",
+)
 
 selecao = st.sidebar.selectbox("Teste", ["Regiao", "Empresa", "Produto"])
 
@@ -20,7 +24,7 @@ elif menu == "Dashboard":
     read_clientes()
 
 
-#create
+# create
 # id = str(6)
 # nome = "Joao da Silva Pereira"
 # empresa = "FIAP"
@@ -33,17 +37,17 @@ elif menu == "Dashboard":
 # cursor.execute("INSERT INTO cliente VALUES (2, 'Carla Ferreira', 'Santos FC', 'carla@email.com', 'otimos produtos')")
 # banco.commit()
 
-#Read
+# Read
 # cursor.execute("SELECT * FROM cliente")
 # print(cursor.fetchall())
 
 
-#Update
+# Update
 # cursor.execute("UPDATE cliente SET nome = 'Fabio Denis' WHERE nome = 'Joao da Silva Pereira'")
 # banco.commit()
 
 
-#Delete
+# Delete
 # try:
 #     banco = sqlite3.connect("C:\\Users\\henri\\Github\\Python\\Object Oriented\\Cadastro_de_clientes\\database.db")
 
@@ -56,5 +60,3 @@ elif menu == "Dashboard":
 #     print("dados excluidos")
 # except sqlite3.Error() as erro:
 #     print("não foi excluido", erro)
-
-

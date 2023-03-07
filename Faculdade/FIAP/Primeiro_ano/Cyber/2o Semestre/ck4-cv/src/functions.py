@@ -1,4 +1,3 @@
-
 import streamlit as st
 import pandas as pd
 import numpy as np
@@ -14,45 +13,45 @@ from skimage import transform as tf
 
 
 def config():
-  """
-  Esta função é responsavel por configurar as features da pagina do streamlit
-  """
-  st.set_page_config(
-      page_title="Santander",
-      layout="centered",
-      initial_sidebar_state="expanded"    
-      )
-  st.header("Checkpoint Cyber 4")
-  # st.image("Santander-Logo.png")
-  st.write("Esta aplicação recebe uma selfie que identifica se a pessoa está usando um relogio ou não, para realizar a autenticação!")
-  st.write("Insira sua imagem abaixo!")
+    """
+    Esta função é responsavel por configurar as features da pagina do streamlit
+    """
+    st.set_page_config(
+        page_title="Santander", layout="centered", initial_sidebar_state="expanded"
+    )
+    st.header("Checkpoint Cyber 4")
+    # st.image("Santander-Logo.png")
+    st.write(
+        "Esta aplicação recebe uma selfie que identifica se a pessoa está usando um relogio ou não, para realizar a autenticação!"
+    )
+    st.write("Insira sua imagem abaixo!")
 
 
 def random_generator(size=6, chars=string.ascii_letters + string.digits):
-  return ''.join(random.choice(chars) for _ in range(size))
+    return "".join(random.choice(chars) for _ in range(size))
 
 
-def create_captcha(text, shear=0, size=(200,40), scale=1):
-  im = Image.new("L", size, "black")
-  draw = ImageDraw.Draw(im)
-  font = ImageFont.truetype(r'src/Coval-Black.ttf', 22)
-  draw.text((2,2), text, fill=1, font=font)
+def create_captcha(text, shear=0, size=(200, 40), scale=1):
+    im = Image.new("L", size, "black")
+    draw = ImageDraw.Draw(im)
+    font = ImageFont.truetype(r"src/Coval-Black.ttf", 22)
+    draw.text((2, 2), text, fill=1, font=font)
 
-  image = np.array(im)
+    image = np.array(im)
 
-  affine_tf = tf.AffineTransform(shear=shear)
-  image_tf = tf.warp(image, affine_tf)
+    affine_tf = tf.AffineTransform(shear=shear)
+    image_tf = tf.warp(image, affine_tf)
 
-  return image_tf/image_tf.max() 
+    return image_tf / image_tf.max()
 
 
 def process_image(image):
-  size = (224, 224)
-  image = ImageOps.fit(image, size, Image.ANTIALIAS)
-  image_array = np.asarray(image)
-  normalized_image_array = (image_array.astype(np.float32) / 127.0) - 1
+    size = (224, 224)
+    image = ImageOps.fit(image, size, Image.ANTIALIAS)
+    image_array = np.asarray(image)
+    normalized_image_array = (image_array.astype(np.float32) / 127.0) - 1
 
-  return normalized_image_array
+    return normalized_image_array
 
 
 def switch_page(page_name: str):
@@ -64,7 +63,7 @@ def switch_page(page_name: str):
 
     def standardize_name(name: str) -> str:
         return name.lower().replace("_", " ")
-    
+
     page_name = standardize_name(page_name)
 
     pages = get_pages("main.py")

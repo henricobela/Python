@@ -1,4 +1,17 @@
-meses = ["jan", "fev", "mar", "mai", "abr", "jun", "jul", "ago", "set", "out", "nov", "dez"]
+meses = [
+    "jan",
+    "fev",
+    "mar",
+    "mai",
+    "abr",
+    "jun",
+    "jul",
+    "ago",
+    "set",
+    "out",
+    "nov",
+    "dez",
+]
 
 vendas_1sem = [25000, 29000, 22000, 17500, 15800, 19900]
 vendas_2sem = [19800, 20120, 17540, 15555, 49051, 9850]

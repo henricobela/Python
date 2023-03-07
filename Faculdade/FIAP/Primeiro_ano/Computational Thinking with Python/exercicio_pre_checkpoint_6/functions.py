@@ -3,17 +3,18 @@ import random
 
 def adicionar(nome, sobrenome, telefone, email, pais, lista):
     x = {
-            "Nome": nome,
-            "Sobrenome": sobrenome,
-            "Telefone": telefone,
-            "E-mail": email,
-            "País": pais
-        }
+        "Nome": nome,
+        "Sobrenome": sobrenome,
+        "Telefone": telefone,
+        "E-mail": email,
+        "País": pais,
+    }
     return lista.append(x)
+
 
 def editar(email, nome, sobrenome, telefone, email_alterado, pais, lista):
     x = len(lista)
-    for i in range(0,x,1):
+    for i in range(0, x, 1):
         if lista[i]["E-mail"] == email:
             lista[i]["Nome"] = nome
             lista[i]["Sobrenome"] = sobrenome
@@ -21,10 +22,10 @@ def editar(email, nome, sobrenome, telefone, email_alterado, pais, lista):
             lista[i]["E-mail"] = email_alterado
             lista[i]["País"] = pais
 
-                
+
 def excluir(email, lista):
     x = len(lista)
-    for i in range(0,x,1):
+    for i in range(0, x, 1):
         if lista[i]["E-mail"] == email:
             del lista[i]
             return True
@@ -32,31 +33,38 @@ def excluir(email, lista):
 
 def ler(lista):
     x = len(lista)
-    print("""
+    print(
+        """
 -----------------------------------------
                 REGISTROS
 -----------------------------------------
-    """)
-    for i in range(0,x,1):
-        print(f"""
+    """
+    )
+    for i in range(0, x, 1):
+        print(
+            f"""
 Email.............:{lista[i]["E-mail"]}
 Nome..............:{lista[i]["Nome"]}
 Sobrenome.........:{lista[i]["Sobrenome"]}
 Telefone..........:{lista[i]["Telefone"]}
 País..............:{lista[i]["País"]}
-        """)  
-    print("""
+        """
+        )
+    print(
+        """
 -----------------------------------------
                 REGISTROS
 -----------------------------------------
-    """)
+    """
+    )
 
 
 def pesquisar(email, lista):
     x = len(lista)
-    for i in range(0,x,1):
-        if lista[i]["E-mail"] == email: 
-            print(f"""
+    for i in range(0, x, 1):
+        if lista[i]["E-mail"] == email:
+            print(
+                f"""
 -----------------------------------------
             PESQUISA POR EMAIL
 -----------------------------------------
@@ -68,13 +76,14 @@ País..............:{lista[i]["País"]}
 -----------------------------------------
             PESQUISA POR EMAIL
 -----------------------------------------
-            """)
+            """
+            )
             return True
-            
-         
-def menu():
 
-    print("""
+
+def menu():
+    print(
+        """
 
      ---------- CADASTRO DE CLIENTES ----------
     |                                          |
@@ -87,18 +96,20 @@ def menu():
     |                                          |
      ------------------------------------------
 
-    """)
+    """
+    )
 
 
 def clear():
+    print("\n" * 125)
 
-    print("\n"*125)
 
 def verificar(email, lista):
     x = len(lista)
-    for i in range(0,x,1):
+    for i in range(0, x, 1):
         if lista[i]["E-mail"] == email:
             return True
+
 
 def criar():
     nome = input("Qual o nome do seu cliente?.... ")
@@ -109,12 +120,9 @@ def criar():
     return nome, sobrenome, telefone, email, pais
 
 
-
-
-
-
 def menu_captcha():
-    print("""
+    print(
+        """
 
                     CAPTCHAS
     
@@ -125,31 +133,36 @@ def menu_captcha():
     5 - Gravando/Exibindo em um arquivo
     0 - Voltar
 
-    """)
+    """
+    )
+
 
 def menu_captcha_dinamico():
-    print("""
+    print(
+        """
 Tipos de caracteres:    
     (l)etras minusculas
     (L)etras maiusculas
     (d)igitos
     (e)speciais
     
-    """)
+    """
+    )
 
-def captcha(size = 10):
+
+def captcha(size=10):
     text = "abcdefghijklmnopqrstuvwxyz"
     nums = "0123456789"
-    punct = '!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~'
+    punct = "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~"
 
     chars = text + nums + punct
-    return ''.join(random.choice(chars) for _ in range(size))
+    return "".join(random.choice(chars) for _ in range(size))
 
 
 def captcha_dinamico(size, escolha):
     text = "abcdefghijklmnopqrstuvwxyz"
     nums = "0123456789"
-    punct = '!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~'
+    punct = "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~"
 
     lista = []
 
@@ -164,10 +177,10 @@ def captcha_dinamico(size, escolha):
             lista.append(punct)
 
     chars = ""
-    for x in lista: 
+    for x in lista:
         chars += x
 
-    return ''.join(random.choice(chars) for _ in range(size))
+    return "".join(random.choice(chars) for _ in range(size))
 
 
 def escrever_arquivo(lista):

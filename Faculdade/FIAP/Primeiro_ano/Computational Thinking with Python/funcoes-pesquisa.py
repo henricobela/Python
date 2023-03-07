@@ -4,14 +4,15 @@ def contar_elem(lista):
         elem += 1
     return elem
 
+
 def procurar_lista(lista, elem):
     elemento = False
     for i in range(contar_elem(lista)):
         if lista[i] == elem:
             elemento = True
             break
-            
-    return (elemento)
+
+    return elemento
 
 
 def ordenar_lista_crescente(lista):
@@ -36,14 +37,14 @@ def ordenar_lista_decrescente(lista):
     return lista
 
 
-def ordenar_lista(lista, ordem = True):
+def ordenar_lista(lista, ordem=True):
     if ordem == True:
         ordenar_lista_crescente(lista)
     else:
         ordenar_lista_decrescente(lista)
-    
+
     return lista
-        
+
 
 def procurar_lista_quebra(lista, elem):
     inicio = 0
@@ -60,7 +61,6 @@ def procurar_lista_quebra(lista, elem):
             fim = quebra - 1
 
     return encontrou
-
 
 
 lista = [1, 4, 88, 6, 9, 10, 55, 265, 333, 1000, 2556]

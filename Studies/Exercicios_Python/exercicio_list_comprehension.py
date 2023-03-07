@@ -11,27 +11,33 @@ for produto, vendas2019, vendas2020 in vendas_produtos:
 
 print(lista_vendas2019)
 
-print("-"*20)
+print("-" * 20)
 
 lista_vendas2020 = [vendas2020 for produto, vendas2019, vendas2020 in vendas_produtos]
 print(lista_vendas2020)
 
-print("-"*20)
+print("-" * 20)
 
-maior_venda_2020 = max([(vendas2020, produto) for produto, vendas2019, vendas2020 in vendas_produtos])
-print(f"O produto mais vendido no ano de 2020 foi {maior_venda_2020[1]}, " 
-      f"com {maior_venda_2020[0]} vendas.")
+maior_venda_2020 = max(
+    [(vendas2020, produto) for produto, vendas2019, vendas2020 in vendas_produtos]
+)
+print(
+    f"O produto mais vendido no ano de 2020 foi {maior_venda_2020[1]}, "
+    f"com {maior_venda_2020[0]} vendas."
+)
 
-print("-"*20)
+print("-" * 20)
 
 meta = 1000
 vendas_produtos_2 = [1500, 150, 200, 3000]
-produtos = ["vinho", "macarrao", "feijao", "carne"] 
+produtos = ["vinho", "macarrao", "feijao", "carne"]
 
-lista_vendas2019_2 = [produto for i, produto in enumerate(produtos) if vendas_produtos_2[i] > meta]
+lista_vendas2019_2 = [
+    produto for i, produto in enumerate(produtos) if vendas_produtos_2[i] > meta
+]
 print(lista_vendas2019_2)
 
-print("-"*20)
+print("-" * 20)
 
 meta = 2000
 vendedores_dicionario = {
@@ -40,11 +46,14 @@ vendedores_dicionario = {
     "Stenio": 8000,
 }
 
-bonus = [(vendedores_dicionario[item] * 0.1) if vendedores_dicionario[item] > meta else 0 for item in vendedores_dicionario]
+bonus = [
+    (vendedores_dicionario[item] * 0.1) if vendedores_dicionario[item] > meta else 0
+    for item in vendedores_dicionario
+]
 print(bonus)
 
 
-print("-"*20)
+print("-" * 20)
 
 
 estoque = [
@@ -59,16 +68,10 @@ lista_pedido = [1000 if qtde < 200 else 500 for produto, qtde in estoque]
 print(lista_pedido)
 
 
-print("-"*20)
+print("-" * 20)
 
 
-produtos2 = [
-    "coca",
-    "guarana",
-    "pepsi",
-    "guaraviton",
-    "fanta"
-]
+produtos2 = ["coca", "guarana", "pepsi", "guaraviton", "fanta"]
 
 vendas = [
     1200,
@@ -84,4 +87,3 @@ total_top3 = sum(vendas[i] for i, produto2 in enumerate(produtos2) if produto2 i
 
 print(total_top3)
 print(f"Top 3 representou {total_top3/sum(vendas):.2%} das vendas")
-

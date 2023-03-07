@@ -5,6 +5,7 @@ from fuzzywuzzy import process
 from fuzzywuzzy import fuzz
 from pyngrok import ngrok
 
+
 def main():
     html_temp = """
     <div style ="background-color:blue;padding:13px">
@@ -12,7 +13,7 @@ def main():
     </div>
     """
 
-    st.markdown(html_temp, unsafe_allow_html = True)
+    st.markdown(html_temp, unsafe_allow_html=True)
     item = st.text_input("Item")
 
     def verificar_nome(item):
@@ -31,5 +32,5 @@ def main():
         verificar_nome(item)
 
 
-if __name__=="__main__":
+if __name__ == "__main__":
     main()

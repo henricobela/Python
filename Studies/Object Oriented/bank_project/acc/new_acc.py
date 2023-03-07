@@ -3,7 +3,6 @@ from pytz import timezone
 
 
 class CreateAccount:
-
     @staticmethod
     def date(self):
         ...
@@ -23,7 +22,9 @@ class CreateAccount:
 
     def withdraw(self, value):
         if value > (self._balance - self._limit):
-            print(f"Withdraw is not possible, your balance ${self._balance:.2f} is under limit ${self._limit:.2f}")
+            print(
+                f"Withdraw is not possible, your balance ${self._balance:.2f} is under limit ${self._limit:.2f}"
+            )
         else:
             self._balance -= value
             print(f"Balance: ${self._balance:.2f}")

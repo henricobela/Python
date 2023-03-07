@@ -25,7 +25,7 @@ def contar_palavras(lista_string):
     return len(lista_string)
 
 
-def mediaDinamica(*args): 
+def mediaDinamica(*args):
     soma = 0
     for cont in range(0, len(args), 1):
         soma += args[cont]
@@ -56,14 +56,15 @@ def criar_cpf_aleatorio():
 
 def menu():
     print(
-        "Seja bem vind(o/a) ao programa!!!\n\n" + 
-        "1 - Contar palavras\n" +
-        "2 - Verificar Validade CPF\n" +
-        "3 - Ver 2 digitos correspondentes\n" + 
-        "4 - Gerar um CPF aleatório\n" + 
-        "5 - Calcular Media\n" + 
-        "6 - Verificar Maior valor\n" + 
-        "0 - Sair\n")
+        "Seja bem vind(o/a) ao programa!!!\n\n"
+        + "1 - Contar palavras\n"
+        + "2 - Verificar Validade CPF\n"
+        + "3 - Ver 2 digitos correspondentes\n"
+        + "4 - Gerar um CPF aleatório\n"
+        + "5 - Calcular Media\n"
+        + "6 - Verificar Maior valor\n"
+        + "0 - Sair\n"
+    )
 
 
 ################### PROGRAMA PRINCIPAL ##############################
@@ -74,11 +75,13 @@ while True:
     opcao = int(input())
     if opcao == 1:
         print(cortar_string("ola!!!", "     tudo", "!!!bem"))
-        print("Certo, vamos contar as palavras, agora digite as palavras que deseja contar: ")
+        print(
+            "Certo, vamos contar as palavras, agora digite as palavras que deseja contar: "
+        )
         frase = cortar_string(input())
         cont = contar_palavras(frase)
         print(frase, cont)
-    
+
     elif opcao == 2:
         print("Certo, vamos verificar o CPF, digite os 9 digitos: ")
         cpf = input()
@@ -100,6 +103,3 @@ while True:
     elif opcao == 0:
         print("SAINDO!!!")
         break
-
-
-

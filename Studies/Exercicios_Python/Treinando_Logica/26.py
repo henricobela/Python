@@ -1,5 +1,5 @@
-# Faça um programa que pergunte o preço de três produtos e informe qual produto você deve comprar, 
-# sabendo que a decisão é sempre pelo mais barato. 
+# Faça um programa que pergunte o preço de três produtos e informe qual produto você deve comprar,
+# sabendo que a decisão é sempre pelo mais barato.
 
 x = []
 
@@ -16,4 +16,3 @@ for i in x:
 for i in range(len(x)):
     if x[i] == valor_mais_barato:
         print(f"Voce deve comprar o produto {x[i]}, por ser mais barato")
-

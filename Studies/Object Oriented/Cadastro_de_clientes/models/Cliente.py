@@ -5,6 +5,3 @@ class Cliente:
         self.empresa = empresa
         self.email = email
         self.comentario = comentario
-
-    
-    

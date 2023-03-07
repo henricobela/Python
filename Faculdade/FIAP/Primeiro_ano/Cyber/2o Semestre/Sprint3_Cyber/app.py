@@ -1,14 +1,16 @@
 from source import *
 
+
 def main():
-    st.set_page_config(page_icon = "📜")
+    st.set_page_config(page_icon="📜")
     st.header("Sprint Cyber")
     st.subheader("📜 Classificador de selfie com CNH ou Não 📜")
 
-  
     nome = st.text_input("Digite seu Nome")
     endereco = st.text_input("Digite seu endereço")
-    num_endereco = st.number_input("Digite o numero do seu endereco", format = "%d", step = 1)
+    num_endereco = st.number_input(
+        "Digite o numero do seu endereco", format="%d", step=1
+    )
     cep = st.text_input("Digite seu CEP")
     veiculo = st.text_input("Digite a placa do seu Carro")
 
@@ -16,7 +18,7 @@ def main():
 
     with col1:
         col1_form = col1.form("form_col1")
-        image = col1_form.file_uploader(label = f"{nome} Envie aqui sua selfie com CNH!")
+        image = col1_form.file_uploader(label=f"{nome} Envie aqui sua selfie com CNH!")
         button_image = col1_form.form_submit_button("Ver Imagem")
         if button_image:
             col1_form.image(image)
@@ -37,5 +39,5 @@ def main():
                 st.snow()
 
 
-if __name__=="__main__":
+if __name__ == "__main__":
     main()

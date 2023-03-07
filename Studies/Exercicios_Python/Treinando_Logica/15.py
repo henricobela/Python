@@ -1,8 +1,8 @@
-# Faça um Programa que pergunte quanto você ganha por hora e o número de horas trabalhadas no mês. 
-# Calcule e mostre o total do seu salário no referido mês, 
-# sabendo-se que são descontados 
-# 11% para o Imposto de Renda, 
-# 8% para o INSS e 
+# Faça um Programa que pergunte quanto você ganha por hora e o número de horas trabalhadas no mês.
+# Calcule e mostre o total do seu salário no referido mês,
+# sabendo-se que são descontados
+# 11% para o Imposto de Renda,
+# 8% para o INSS e
 # 5% para o sindicato, faça um programa que nos dê:
 
 # salário bruto.
@@ -17,18 +17,14 @@
 # - Sindicato ( 5%) : R$
 # = Salário Liquido : R$
 
-# Obs.: Salário Bruto - Descontos = Salário Líquido. 
+# Obs.: Salário Bruto - Descontos = Salário Líquido.
 
 ganho_hora = float(input("Digite os seus ganhos por hora: "))
 horas_trabalhadas = float(input("Digite as horas trabalhadas neste mes: "))
 
 salario_bruto = ganho_hora * horas_trabalhadas
 
-descontos = {
-    "IR": 0.11,
-    "INSS": 0.08,
-    "Sindicato": 0.05
-}
+descontos = {"IR": 0.11, "INSS": 0.08, "Sindicato": 0.05}
 
 salario_liquido = salario_bruto - sum([salario_bruto * v for k, v in descontos.items()])
 

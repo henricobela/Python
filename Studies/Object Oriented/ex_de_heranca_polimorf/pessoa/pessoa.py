@@ -4,15 +4,15 @@ from pessoa.corpo import Corpo
 class Pessoa(Corpo):
     """
     Classe que herda outra classe Corpo, onde nela há atributos de uma pessoa.
-    
+
     Metodos:
         __init__()
         __str__()
     """
-    
-    def __init__(self, nome = "Zé Ninguem", idade = 1200, sexo = "Assexuado?"):
+
+    def __init__(self, nome="Zé Ninguem", idade=1200, sexo="Assexuado?"):
         """
-        Este metodo define o inicio da Classe Pessoa 
+        Este metodo define o inicio da Classe Pessoa
         que herda outra classe chamada Corpo, onde é definida pelos atributos de ambas as classes.
 
         Atributos:
@@ -35,7 +35,7 @@ class Pessoa(Corpo):
         self.dorso = Corpo.dorso()
         self.perna_direita = Corpo.perna_direita()
         self.perna_esquerda = Corpo.perna_esquerda()
-    
+
     def __str__(self):
         """
         Metodo que retorna o nome da pessoa se necessario
@@ -43,5 +43,3 @@ class Pessoa(Corpo):
         retorna self.nome
         """
         return self.nome
-
-    

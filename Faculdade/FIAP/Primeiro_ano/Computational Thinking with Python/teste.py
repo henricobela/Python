@@ -1,5 +1,6 @@
 def menu():
-    print("""
+    print(
+        """
      ------ CADASTRO DE CLIENTES ------
     |                                  |
     |      1 - Criar cliente           |
@@ -10,13 +11,13 @@ def menu():
     |      6 - Sair                    |
     |                                  |
      ----------------------------------
-    """)
+    """
+    )
 
 
 def clear():
-    print("\n"*125)
+    print("\n" * 125)
 
 
 clear()
 menu()
-

@@ -1,10 +1,10 @@
-'''
+"""
 Integrantes do Sprint 2 - Grupo FeelingWhat:
     Henrico Nardelli Bela - RM 95985
     Guilherme Antonio Silva - RM 95044
     Felype Nunes De Souza - RM 96232
     Rafael Pereira da Silva - RM 94341
-'''
+"""
 
 """
 TASK: 1 - Considerando o Sprint 2 devidamente criado, 
@@ -18,12 +18,14 @@ def clear():
 
 
 def menu():
-    print("\nPor favor digite um dos numeros abaixo: \n"
-          "[1] - Preencher Cadastro\n" + 
-          "[2] - Ver Cadastro\n" + 
-          "[3] - Excluir Cadastro\n" + 
-          "[4] - Prosseguir para pesquisa de satisfação\n" + 
-          "[5] - SAIR")
+    print(
+        "\nPor favor digite um dos numeros abaixo: \n"
+        "[1] - Preencher Cadastro\n"
+        + "[2] - Ver Cadastro\n"
+        + "[3] - Excluir Cadastro\n"
+        + "[4] - Prosseguir para pesquisa de satisfação\n"
+        + "[5] - SAIR"
+    )
 
 
 def preencher_cadastro():
@@ -34,9 +36,9 @@ def preencher_cadastro():
 
 
 def ver_cadastro(nome, cpf, email):
-    print("-"*20)
+    print("-" * 20)
     print(f"Cadastro de {nome}")
-    print("-"*20)
+    print("-" * 20)
     print(f"Nome: {nome}")
     print(f"CPF: {cpf}")
     print(f"Email: {email}")
@@ -50,21 +52,25 @@ def excluir_cadastro():
 
 
 def perguntar_pesquisa():
-    return int(input("Em uma escala de 0 a 10, qual a chance de você recomendar a BASF para um amigo?\nDigite de 0 a 10: "))
-
+    return int(
+        input(
+            "Em uma escala de 0 a 10, qual a chance de você recomendar a BASF para um amigo?\nDigite de 0 a 10: "
+        )
+    )
 
 
 ############################################## - PRINCIPAL - ########################################
 
 
-
 nome = ""
 
-print("------------------------\n" + 
-        "PROGRAMA DE SATISFAÇÃO\n" + 
-        "------------------------\n" + 
-        "Somos a Feeling What?!!!\n" + 
-        "Gostaríamos de pedir algumas informações antes de começarmos com a pesquisa!\n")
+print(
+    "------------------------\n"
+    + "PROGRAMA DE SATISFAÇÃO\n"
+    + "------------------------\n"
+    + "Somos a Feeling What?!!!\n"
+    + "Gostaríamos de pedir algumas informações antes de começarmos com a pesquisa!\n"
+)
 while True:
     menu()
     opcao = int(input())
@@ -81,7 +87,7 @@ while True:
                 break
 
     elif opcao == 2:
-        try: 
+        try:
             ver_cadastro(nome, cpf, email)
         except:
             print("Cadastro inexistente! Por favor, preencher seu cadastro!!!")
@@ -97,15 +103,21 @@ while True:
         comment = "Sem comentários"
         while True:
             if num >= 0 and num <= 4:
-                print(f"{nome} Sentimos muito pelo seu transtorno, como podemos melhorar nossos serviços?")
+                print(
+                    f"{nome} Sentimos muito pelo seu transtorno, como podemos melhorar nossos serviços?"
+                )
                 comment = input("Comente aqui: ")
                 break
             elif num >= 5 and num <= 7:
-                print(f"{nome} Entendemos seu ponto, para podermos melhorar nossos serviços comente sobre sua experiencia?")
+                print(
+                    f"{nome} Entendemos seu ponto, para podermos melhorar nossos serviços comente sobre sua experiencia?"
+                )
                 comment = input("Comente aqui: ")
                 break
             elif num > 7 and num <= 10:
-                print(f"{nome} Agradecemos sua participação! Caso queira comentar sua experiencia, abaixo temos um campo de comentario")
+                print(
+                    f"{nome} Agradecemos sua participação! Caso queira comentar sua experiencia, abaixo temos um campo de comentario"
+                )
                 comment = input("Comente aqui: ")
                 break
             elif num < 0 or num > 10:
