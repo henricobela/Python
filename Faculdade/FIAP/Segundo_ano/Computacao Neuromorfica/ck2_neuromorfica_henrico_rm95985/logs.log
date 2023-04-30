@@ -1,0 +1,48 @@
+2023-04-16 16:32:01,618:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2023-04-16 16:32:01,618:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2023-04-16 16:32:01,618:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2023-04-16 16:32:01,618:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2023-04-16 16:32:02,008:WARNING:
+'prophet' is a soft dependency and not included in the pycaret installation. Please run: `pip install prophet` to install.
+2023-04-16 16:32:26,244:INFO:Initializing load_model()
+2023-04-16 16:32:26,245:INFO:load_model(model_name=model_pickle, platform=None, authentication=None, verbose=True)
+2023-04-16 16:32:26,309:INFO:Initializing predict_model()
+2023-04-16 16:32:26,310:INFO:predict_model(self=<pycaret.regression.oop.RegressionExperiment object at 0x000002397C83AB00>, estimator=Pipeline(memory=FastMemory(location=C:\Users\Henrico\AppData\Local\Temp\joblib),
+         steps=[('numerical_imputer',
+                 TransformerWrapper(include=['local', 'field2', 'field3',
+                                             'field4', 'field5', 'field6',
+                                             'field7', 'field8'],
+                                    transformer=SimpleImputer())),
+                ('categorical_imputer',
+                 TransformerWrapper(include=['date', 'time'],
+                                    transformer=SimpleImputer(strategy='most_frequ...
+                                                              handle_missing='return_nan',
+                                                              use_cat_names=True))),
+                ('rest_encoding',
+                 TransformerWrapper(include=['time'],
+                                    transformer=LeaveOneOutEncoder(cols=['time'],
+                                                                   handle_missing='return_nan',
+                                                                   random_state=123))),
+                ('trained_model',
+                 RandomForestRegressor(max_depth=6, max_features='log2',
+                                       min_impurity_decrease=0.0002,
+                                       min_samples_leaf=2, n_estimators=290,
+                                       n_jobs=-1, random_state=123))]), probability_threshold=None, encoded_labels=False, raw_score=False, round=4, verbose=True, ml_usecase=None, preprocess=True, replace_labels_in_column=<function _SupervisedExperiment.predict_model.<locals>.replace_labels_in_column at 0x0000023918E53BE0>)
+2023-04-16 16:32:26,310:INFO:Checking exceptions
+2023-04-16 16:32:26,310:INFO:Preloading libraries
+2023-04-16 16:32:26,310:INFO:Set up data.
+2023-04-16 16:32:26,315:INFO:Set up index.
+2023-04-18 17:01:07,682:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2023-04-18 17:01:07,682:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2023-04-18 17:01:07,682:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2023-04-18 17:01:07,682:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2023-04-18 17:01:08,877:WARNING:
+'prophet' is a soft dependency and not included in the pycaret installation. Please run: `pip install prophet` to install.
