@@ -1,0 +1,16 @@
+Oi Professor, tudo bem?
+
+Consegui executar o trabalho apenas em UIPath, porem, 
+a execução dos processos demora +- 3h para finalizar, 
+não achei nenhuma forma de reduzir esse tempo. 
+
+Eu coloquei a planilha e as imagens da finalização do processo dentro da pasta data. 
+
+Caso queira executar o processo mesmo assim, peço que execute o processo indicando a planilha que está dentro da pasta data, 
+pois se executar em outra planilha, o processo vai quebrar. 
+
+Espero que minha nota nao baixe muito por conta da demora de execução do processo rsrs. 
+
+Obs: Tive ajuda de uma colega de sala para fazer o checkpoint professor, desculpe qualquer coisa.
+
+Ass. Henrico
