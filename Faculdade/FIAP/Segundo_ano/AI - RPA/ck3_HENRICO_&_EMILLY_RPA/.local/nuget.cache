@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "EW0IZbSH43fyzJbxsoVUKNlW/aGUm1bnQb/miGq94E6CpcUoEnDfIpWYwsbp/OcdjVQpwKRgVTaNGDFfNKZYhw==",
+  "dgSpecHash": "LdhpQHmqPsYdYoFbVQOmWVlf7WRv/CqB++7IOkTBi7S9CfJCUS7Wgjc8Jy6pP/Y8JmLZ8CJW2dAz5R41Opg5Aw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Henrico\\Desktop\\ck3_HENRICO_&_EMILLY_RPA\\.local\\",
+  "projectFilePath": "E:\\Github\\Python\\Faculdade\\FIAP\\Segundo_ano\\AI - RPA\\ck3_HENRICO_&_EMILLY_RPA\\.local\\",
   "expectedPackageFiles": [
     "C:\\Users\\Henrico\\.nuget\\packages\\automapper\\9.0.0\\automapper.9.0.0.nupkg.sha512",
     "C:\\Users\\Henrico\\.nuget\\packages\\azure.core\\1.18.0\\azure.core.1.18.0.nupkg.sha512",

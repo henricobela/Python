@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "KmXo4DA78IJYJ3OIMeivoyYg/XggwdfIKnXL4l7UPivokJ8l+o+8onwxhsWAitKNoAee4yQkLkqv60k3/puB8g==",
+  "dgSpecHash": "VjHeuFS+jI6PNfrReQ83fTlIFBfZXrJge0U5nOGPyPLZnZ478jcSQWDzeDACFFRpgC9ALDpv2VlvRW7mw/YTrA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Henrico\\Downloads\\checkpoint_2_rpa_Henrico_95985\\.local\\",
+  "projectFilePath": "E:\\Github\\Python\\Faculdade\\FIAP\\Segundo_ano\\AI - RPA\\ck2_uipath_rpa\\checkpoint_2_rpa_Henrico_95985\\.local\\",
   "expectedPackageFiles": [
     "C:\\Users\\Henrico\\.nuget\\packages\\automapper\\9.0.0\\automapper.9.0.0.nupkg.sha512",
     "C:\\Users\\Henrico\\.nuget\\packages\\azure.core\\1.18.0\\azure.core.1.18.0.nupkg.sha512",
