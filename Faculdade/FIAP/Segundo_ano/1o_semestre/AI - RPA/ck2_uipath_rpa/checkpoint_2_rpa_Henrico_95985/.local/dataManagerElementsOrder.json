@@ -1,0 +1,49 @@
+{
+  "Workflows": [
+    {
+      "Path": null,
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [],
+      "ArgumentsSectionElementsOrder": null,
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Main.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "dt&Sequence_1",
+        "dtf&Sequence_1",
+        "dtf2&Sequence_1",
+        "dt2&Sequence_1",
+        "counter&Sequence_1",
+        "media&Sequence_1",
+        "soma&Sequence_1",
+        "jogadores&Sequence_1",
+        "dtf3&Sequence_1",
+        "dt3&Sequence_1",
+        "dados&Sequence_1",
+        "maior&Sequence_1",
+        "jogadoresMaiorPeriodo&Sequence_1",
+        "pdp&Sequence_1",
+        "maisCraques&Sequence_1",
+        "clubeMaisCraques&Sequence_1",
+        "maior2&Sequence_1",
+        "counter2&Sequence_1",
+        "indiceUnico&Sequence_1",
+        "indiceAnterior&Sequence_1",
+        "indiceAtual&Sequence_1",
+        "conteudoClube&Sequence_1",
+        "conteudoAno&Sequence_1",
+        "linha&Sequence_1",
+        "grp&Sequence_20",
+        "anoInicio&Sequence_2",
+        "anofinal&Sequence_2",
+        "periodo&Sequence_2"
+      ],
+      "ArgumentsSectionElementsOrder": [],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    }
+  ]
+}
