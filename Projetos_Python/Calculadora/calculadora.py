@@ -15,6 +15,21 @@ def msg_saida():
     print("Saindo da calculadora...")
 
 
+def soma():
+    ...
+
+
+def subtracao():
+    ...
+
+
+def divisao():
+    ...
+
+
+def multiplicacao():
+    ...
+
 
 a, b, resultado, continuar = 0, 0, 0, True
 
