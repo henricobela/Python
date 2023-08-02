@@ -37,3 +37,6 @@ elif escolha == "4":
     b = int(input("Digite outro numero a ser multiplicado: "))
     resultado = a * b
     print(f"Dividido realizada: {a} x {b} = {resultado}")   
+
+elif escolha not in ["1", "2", "3", "4"]:
+    print("Por favor, escolha uma opção válida.\n1, 2, 3 ou 4.")
