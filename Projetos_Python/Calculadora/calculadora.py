@@ -42,7 +42,7 @@ while continuar != False:
         print(f"Você escolheu: Soma")
         a = int(input("Digite um numero a ser somado: "))
         b = int(input("Digite outro numero a ser somado: "))
-        resultado = a + b
+        resultado = soma(a, b)
         print(f"Soma realizada: {a} + {b} = {resultado}")
         manter_ligada = str(input("Deseja manter a calculadora ligada e continuar as operações? [S]im ou [N]ão: ")).upper()
         if manter_ligada == "S":
