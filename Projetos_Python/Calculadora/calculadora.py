@@ -15,8 +15,26 @@ def msg_saida():
     print("Saindo da calculadora...")
 
 
-def soma(a, b):
-    return a + b
+# def soma(a, b):
+#     return a + b
+
+def soma():
+    nums = []
+    soma_cont = True
+    resultado = 0
+    print("Digite os numeros que deseja somar, digite SAIR para parar de somar. Obs: Pressione Enter para inserir outro numero para a soma.")
+    while soma_cont == True:
+        num = str(input()).upper()
+        if num == "SAIR":
+            soma_cont = False
+        else:
+            nums.append(num)
+            soma_cont = True
+
+    for num in nums:
+        resultado += int(num)
+
+    return resultado, nums
 
 
 def subtracao(a, b):
@@ -31,26 +49,30 @@ def multiplicacao(a, b):
     return a * b
 
 
+def manter_rodando():
+    manter_ligada = str(input("Deseja manter a calculadora ligada e continuar as operações? [S]im ou [N]ão: ")).upper()
+    if manter_ligada == "S":
+        return True
+    elif manter_ligada == "N":
+        msg_saida()
+        return False
+
+
+
+
+
 a, b, resultado, continuar = 0, 0, 0, True
 
-while continuar != False:
+while True:
     menu()
     escolha = str(input("Escolha um numero para operação matemática: "))
 
     if escolha == "1":
         limpar_tela()
-        print(f"Você escolheu: Soma")
-        a = int(input("Digite um numero a ser somado: "))
-        b = int(input("Digite outro numero a ser somado: "))
-        resultado = soma(a, b)
-        print(f"Soma realizada: {a} + {b} = {resultado}")
-        manter_ligada = str(input("Deseja manter a calculadora ligada e continuar as operações? [S]im ou [N]ão: ")).upper()
-        if manter_ligada == "S":
-            continue
-        elif manter_ligada == "N":
-            msg_saida()
-            continuar = False
-
+        resultado, numeros_soma = soma()
+        print("Numeros somados:", *numeros_soma, " = " f"{resultado}")
+        if manter_rodando() == False: break
+        
     elif escolha == "2":
         limpar_tela()
         print(f"Você escolheu: Subtração")
