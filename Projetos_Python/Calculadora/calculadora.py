@@ -15,14 +15,10 @@ def msg_saida():
     print("Saindo da calculadora...")
 
 
-# def soma(a, b):
-#     return a + b
-
-def soma():
+def pegar_numeros():
     nums = []
     soma_cont = True
-    resultado = 0
-    print("Digite os numeros que deseja somar, digite SAIR para parar de somar. Obs: Pressione Enter para inserir outro numero para a soma.")
+
     while soma_cont == True:
         num = str(input()).upper()
         if num == "SAIR":
@@ -30,23 +26,74 @@ def soma():
         else:
             nums.append(num)
             soma_cont = True
+    return nums
 
+
+
+def soma():
+    resultado = 0
+    print("Digite os numeros que deseja somar, digite SAIR para parar de somar. Obs: Pressione Enter para inserir outro numero para a soma.")
+    nums = pegar_numeros() #implementar nas outras funcoes
     for num in nums:
         resultado += int(num)
+    return resultado, nums
+
+
+def subtracao():
+    nums = []
+    sub_cont = True
+    resultado = 0
+    print("Digite os numeros que deseja subtrair, digite SAIR para parar de subtrair. Obs: Pressione Enter para inserir outro numero para a subtração.")
+    while sub_cont == True:
+        num = str(input()).upper()
+        if num == "SAIR":
+            sub_cont = False
+        else:
+            nums.append(num)
+            sub_cont = True
+
+    for num in nums:
+        resultado -= int(num)
 
     return resultado, nums
 
 
-def subtracao(a, b):
-    return a - b
+def divisao():
+    nums = []
+    div_cont = True
+    resultado = 1
+    print("Digite os numeros que deseja dividir, digite SAIR para parar de dividir. Obs: Pressione Enter para inserir outro numero para a divisão.")
+    while div_cont == True:
+        num = str(input()).upper()
+        if num == "SAIR":
+            div_cont = False
+        else:
+            nums.append(num)
+            div_cont = True
+
+    for num in nums:
+        resultado /= int(num)
+
+    return resultado, nums  
 
 
-def divisao(a, b):
-    return a / b
+def multiplicacao():
+    nums = []
+    mult_cont = True
+    resultado = 1
+    print("Digite os numeros que deseja multiplicar, digite SAIR para parar de multiplicar. Obs: Pressione Enter para inserir outro numero para a multiplicação.")
+    while mult_cont == True:
+        num = str(input()).upper()
+        if num == "SAIR":
+            mult_cont = False
+        else:
+            nums.append(num)
+            mult_cont = True
 
+    for num in nums:
+        resultado *= int(num)
 
-def multiplicacao(a, b):
-    return a * b
+    return resultado, nums 
 
 
 def manter_rodando():
@@ -57,11 +104,6 @@ def manter_rodando():
         msg_saida()
         return False
 
-
-
-
-
-a, b, resultado, continuar = 0, 0, 0, True
 
 while True:
     menu()
@@ -75,50 +117,26 @@ while True:
         
     elif escolha == "2":
         limpar_tela()
-        print(f"Você escolheu: Subtração")
-        a = int(input("Digite um numero a ser subtraído: "))
-        b = int(input("Digite outro numero a ser subtraído: "))
-        resultado = a - b
-        print(f"Subtração realizada: {a} - {b} = {resultado}")
-        manter_ligada = str(input("Deseja manter a calculadora ligada e continuar as operações? [S]im ou [N]ão: "))
-        if manter_ligada == "S":
-            continue
-        elif manter_ligada == "N":
-            msg_saida()
-            continuar = False
+        resultado, numeros_sub = subtracao()
+        print("Numeros subtraídos:", *numeros_sub, " = " f"{resultado}")
+        if manter_rodando() == False: break
 
     elif escolha == "3":
         limpar_tela()
-        print(f"Você escolheu: Divisão")
-        a = int(input("Digite um numero a ser dividido: "))
-        b = int(input("Digite outro numero a ser dividido: "))
-        resultado = a / b
-        print(f"Dividido realizada: {a} / {b} = {resultado}")    
-        manter_ligada = str(input("Deseja manter a calculadora ligada e continuar as operações? [S]im ou [N]ão: "))
-        if manter_ligada == "S":
-            continue
-        elif manter_ligada == "N":
-            msg_saida()
-            continuar = False
+        resultado, numeros_div = divisao()
+        print("Numeros divididos:", *numeros_div, " = " f"{resultado}")
+        if manter_rodando() == False: break
 
     elif escolha == "4":
         limpar_tela()
-        print(f"Você escolheu: Multiplicação")
-        a = int(input("Digite um numero a ser multiplicado: "))
-        b = int(input("Digite outro numero a ser multiplicado: "))
-        resultado = a * b
-        print(f"Dividido realizada: {a} x {b} = {resultado}")   
-        manter_ligada = str(input("Deseja manter a calculadora ligada e continuar as operações? [S]im ou [N]ão: "))
-        if manter_ligada == "S":
-            continue
-        elif manter_ligada == "N":
-            msg_saida()
-            continuar = False
+        resultado, numeros_mult = multiplicacao()
+        print("Numeros multiplicados:", *numeros_mult, " = " f"{resultado}")
+        if manter_rodando() == False: break
 
     elif escolha == "0":
         limpar_tela()
         msg_saida()
-        continuar = False
+        break
 
     elif escolha not in ["1", "2", "3", "4", "0"]:
         limpar_tela()
