@@ -1,4 +1,13 @@
-# Use the official Python image as the base image
 FROM python:3.10
 
-# Set the working directory in the container
+WORKDIR /app
+
+# COPY requirements.txt requirements.txt
+
+# RUN pip install -r requirements.txt
+
+EXPOSE 5000
+
+COPY . .
+
+CMD ["python", "/app/app.py"]
