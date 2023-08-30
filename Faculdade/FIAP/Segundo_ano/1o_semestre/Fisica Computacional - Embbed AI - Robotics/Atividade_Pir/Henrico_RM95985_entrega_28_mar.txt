@@ -1,9 +1,0 @@
-https://www.tinkercad.com/things/9WAQdGJocRo?sharecode=-GYM2-kJ2WxzytzfnQfrkU4SIGlLdFvnbCKX5fwYD0Y
-
-
-Professor, fiz os dois exercicios em um só, se vc clicar no botao, o alarme vai tocar, assim como testar o sensor de proximidade.
-Em ambos os casos, o led acende!
-
-Nome: Henrico Nardelli Bela
-RM: 95985
-Turma: 2TIAR

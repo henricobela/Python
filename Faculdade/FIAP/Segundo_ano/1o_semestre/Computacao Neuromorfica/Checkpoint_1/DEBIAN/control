@@ -1,9 +1,0 @@
-Package: euclidean
-Version: 1.0
-Section: custom
-Priority: optional
-Architecture: all
-Essential: no
-Installed-Size: 1024
-Maintainer: Henrico Nardelli Bela
-Description: euclidean debian module for my checkpoint 1
