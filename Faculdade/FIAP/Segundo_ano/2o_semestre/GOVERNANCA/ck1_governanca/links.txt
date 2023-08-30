@@ -1,9 +1,0 @@
-
-Dar acesso para a pasta onde estiver a chave pem
-chmod 400 chave_ec2_2tiar_henrico.pem
-
-ssh de conexao ao servidor
-ssh -i "chave_ec2_2tiar_henrico.pem" ubuntu@ec2-52-23-251-255.compute-1.amazonaws.com
-
-link de acesso no navegador
-ec2-52-23-251-255.compute-1.amazonaws.com/incomes
