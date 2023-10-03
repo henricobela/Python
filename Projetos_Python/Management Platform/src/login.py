@@ -4,5 +4,18 @@ import streamlit as st
 db = Database(path_to_db = "utils/data/db.db")
 
 def login(user, password) -> bool:
-    sql = f"SELECT * FROM usuario WHERE login = '{user}' AND senha = '{password}';"
-    if db.execute_query_login(query = sql): return True
+    check = db.execute_query_login(user = user, password = password)
+    if check == True: 
+        return True
+    elif check == False:
+        return False
+    else:
+        st.warning(check)
+
+
+def check_login(user, password) -> bool:
+    check_reg = db.register_user(user, password)
+    if check_reg == True:
+        return True
+    else:
+        return False
