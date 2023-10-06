@@ -3,6 +3,20 @@ from src.login import login, check_login
 from streamlit_extras.switch_page_button import switch_page
 import time 
 
+
+st.markdown(
+    """
+        <style>
+            [data-testid="collapsedControl"] {
+                display: none
+            }
+            #MainMenu {visibility: hidden;}
+            footer {visibility: hidden;}
+        </>
+    """,
+    unsafe_allow_html = True)
+
+
 st.header("PlatformAI")
 
 
