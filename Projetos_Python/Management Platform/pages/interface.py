@@ -18,6 +18,9 @@ st.markdown(
 
 st.header("PlatformAI")
 
+if st.button("Voltar"):
+    switch_page("app")
+
 option = st.selectbox(options = ["Selecione", "Gerenciamento de Contas", "Gerenciamento de Vendas", "Admin"], 
                       label = "Selecione um dos serviços")
 
