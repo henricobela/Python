@@ -3,8 +3,11 @@ import pandas as pd
 import numpy as np
 import altair as alt
 from streamlit_extras.switch_page_button import switch_page
+from src.bills_database import Bills_Database
 
 
+db = Bills_Database(path_to_db = "utils/data/db_bills.db")
+conn, cursor = db.get_cursor_conn()
 
 st.markdown(
     """
@@ -18,6 +21,7 @@ st.markdown(
     """,
     unsafe_allow_html = True)
 
+
 col_header, col_voltar = st.columns([1, 0.2])
 col_header.header("Finanças")
 
@@ -29,6 +33,19 @@ st.markdown("---", unsafe_allow_html = True)
 tab_dash, tab_cadastro_contas, tab_cadastro_cartao = st.tabs(["Dashboard", "Contas", "Cartões"])
 
 with tab_dash:
+
+    df_from_db_despesa = db.execute_query_df("SELECT * FROM bills_despesa")
+    df_from_db_receb = db.execute_query_df("SELECT * FROM bills_recebimento")
+
+    with st.expander("Contas"):
+        col_desp, col_receb = st.columns([1, 1])
+        with col_desp:
+            st.error("Despesas")
+            st.dataframe(df_from_db_despesa)
+        with col_receb:
+            st.success("Recebimentos")
+            st.dataframe(df_from_db_receb)
+
     chart_data = pd.DataFrame(
     np.random.randn(20, 3),
         columns=['a', 'b', 'c'])
@@ -39,10 +56,7 @@ with tab_dash:
 with tab_cadastro_contas:
 
     with st.form(key = "contas_pag_rec"):
-        
         tab_pag, tab_rec = st.tabs(["Contas á Pagar", "Recebimentos"])
-
-        
 
         with tab_pag:
             col1, col2, col3 = st.columns([1,1,1])
@@ -57,12 +71,12 @@ with tab_cadastro_contas:
             with col3:
                 categoria = st.text_input("Categoria: ", key = "categoria_pag_key")
                 valor_conta = st.number_input("Valor da Conta", key = "valor_conta_key")
-            
-            valor_parcela = valor_conta / parcelas if valor_conta != 0 else 0
+                if valor_conta != 0:
+                    valor_parcela = valor_conta / parcelas 
 
             button_send_pag = st.form_submit_button("Enviar Conta")
             if button_send_pag:
-                data = {
+                data_pag = {
                     "Conta": nome_conta,
                     "Descrição": descricao_conta,
                     "Data": data_compra,
@@ -71,11 +85,11 @@ with tab_cadastro_contas:
                     "Categoria": categoria,
                     "Valor": valor_conta,
                     "Valor das Parcelas": valor_parcela,
-                    "Tipo": "conta"
                 }
-                df = pd.DataFrame(data, index = [0])
-                st.dataframe(df)
-                st.balloons()
+                df_pag = pd.DataFrame(data_pag, index = [0])
+                df_pag.to_sql('bills_despesa', conn, index=False, if_exists='append')
+                st.success("Despesa Cadastrada")
+                
 
         with tab_rec:
             col4, col5, col6 = st.columns([1,1,1])
@@ -89,12 +103,12 @@ with tab_cadastro_contas:
             with col6:
                 categoria_rec = st.text_input("Categoria: ", key = "categoria_rec_key")
                 valor_rec = st.number_input("Valor da Conta", key = "valor_rec_key")
-
-            valor_parcela_rec = valor_rec / parcelas_rec if valor_conta != 0 else 0
+                if valor_rec != 0:
+                    valor_parcela_rec = valor_rec / parcelas_rec
 
             button_send_rec = st.form_submit_button("Enviar Recebimento")
             if button_send_rec:
-                data = {
+                data_receb = {
                     "Conta": nome_rec,
                     "Descrição": descricao_rec,
                     "Data": data_rec,
@@ -105,9 +119,10 @@ with tab_cadastro_contas:
                     "Valor das Parcelas": valor_parcela_rec,
                     "Tipo": "recebimento"
                 }
-                df = pd.DataFrame(data, index = [0])
-                st.dataframe(df)
-                st.balloons()
+                df_rec = pd.DataFrame(data_receb, index = [0])
+                df_rec.to_sql('bills_recebimento', conn, index=False, if_exists='append')
+                st.success("Recebimento Cadastrado")
+
 
             
             
