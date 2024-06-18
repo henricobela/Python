@@ -1,4 +1,4 @@
-from acc.new_acc import CreateAccount
+from new_acc import CreateAccount
 
 
 new_account = CreateAccount(1234, 996688, 1000, "Henrico Nardelli", "111.222.333-44")
